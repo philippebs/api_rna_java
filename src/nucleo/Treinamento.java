@@ -105,8 +105,8 @@ public class Treinamento {
 	}
 	
 	/**
-	 * Monta a Rede Neural de acordo com as camadas que foram passadas nos m�todos, caso n�o 
-	 * tenha nenhum parametro a rede n�o � montada.
+	 * Monta a Rede Neural de acordo com as camadas que foram passadas nos métodos, caso não 
+	 * tenha nenhum parametro a rede não é montada.
 	 * @return {@link Boolean}
 	 */
 	public Boolean montarRede(){
@@ -134,6 +134,8 @@ public class Treinamento {
 			}
 			rede.put(TipoNeuronio.ENTRADA, camadaEntrada);
 			
+			System.out.println("Camada de entrada montada com sucesso!");
+			
 			return true;
 		}
 		return false;
@@ -155,6 +157,10 @@ public class Treinamento {
 				}
 			}
 		}
+		
+		if(quantidadeCamadasOcultas > 0){
+			System.out.println("Camada oculta montada com sucesso!");
+		}
 	}
 	
 	private Boolean criarCamadaSaida() {
@@ -167,13 +173,15 @@ public class Treinamento {
 			}
 			rede.put(TipoNeuronio.SAIDA, camadaSaida);
 			
+			System.out.println("Camada de saída montada com sucesso!");
+			
 			return true;
 		}
 		
 		return false;
 	}
 	
-	// Rafatorar esse tracho de c�digo, ainda n�o est� 100%
+	// Rafatorar esse tracho de código, ainda não está 100%
 	public Boolean treinar(int iteracoes){
 		Boolean treinada = false;
 		int iter = 0;
@@ -214,6 +222,12 @@ public class Treinamento {
 			System.out.println();
 			iter++;
 		}// Fim While
+		
+		System.out.println("iter: " + iter + " iteracoes: " + iteracoes + " Treinada: " + treinada);
+		if(iter >= iteracoes && !treinada){
+			System.out.println("As iterações foram insuficiente para treinar a rede neural!");
+		}
+		
 		return true;
 	}
 	
@@ -230,7 +244,7 @@ public class Treinamento {
 	private void setaEntradaNeuronio(List<BigDecimal> ent, List<Neuronio> listaNeuronios, int pos){
 		try {
 			if(ent.size() != listaNeuronios.size()){
-				throw new Exception("Entradas n�o corresponcem a quantidade de neuronios da camada de Entrada!");
+				throw new Exception("Entradas não correspondem a quantidade de neuronios da camada de Entrada!");
 			}else{
 				for(int i = 0; i < listaNeuronios.size(); i ++){
 					Neuronio neuronio = listaNeuronios.get(i);

@@ -129,10 +129,10 @@ public class Neuronio implements Soma{
 
 	@Override
 	public String toString() {
-		String retorno = "Neuronio: " + super.toString() + " [pesoBias=" + pesoBias;
+		String retorno = "Neuronio: " + super.toString() + " [pesoBias = " + pesoBias;
 		for(int i = 0; i < peso.size(); i++){
 			BigDecimal p = peso.get(i);
-			retorno += ", peso" + (i+1) + p.toString();
+			retorno += ", peso" + (i+1) + " = "+ p.toString();
 		}
 		
 		return retorno;
