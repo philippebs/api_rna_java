@@ -200,7 +200,7 @@ public class Treinamento {
 						BigDecimal saidaCalculada = nSaida.somar();
 						saidaCalculada = this.transferencia.tranferir(saidaCalculada);
 						
-						this.erro = saidaCalculada.subtract(saidaDesejada);
+						this.erro = saidaDesejada.subtract(saidaCalculada);
 						
 						if(erro.compareTo(BigDecimal.ZERO) != 0){
 							atualizaPeso(nSaida);
@@ -211,6 +211,7 @@ public class Treinamento {
 				}
 				primeiraPassagem++;
 			}// Fim do for de entradas
+			System.out.println();
 			iter++;
 		}// Fim While
 		return true;

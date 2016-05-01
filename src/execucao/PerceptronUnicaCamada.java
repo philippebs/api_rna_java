@@ -25,7 +25,7 @@ public class PerceptronUnicaCamada {
 		
 		System.out.println("Montagem da rede: " + t.montarRede());
 		
-		System.out.println("Treinada: " + t.treinar(4));
+		System.out.println("Treinada: " + t.treinar(8));
 		
 	}
 }
