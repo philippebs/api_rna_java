@@ -26,7 +26,7 @@ public class Treinamento {
 	private Integer quantidadeNeuronioCamadaSaida;
 	
 //	/**
-//	 * Caso funcione o método recebe um map de entrada e um map de saida e adiciona a entrada com a saida desejada
+//	 * Caso funcione o mï¿½todo recebe um map de entrada e um map de saida e adiciona a entrada com a saida desejada
 //	 * no Map de entrada e saida;
 //	 * @param entrada {@link Map} <{@link Integer}, {@link List}<{@link BigDecimal}>>
 //	 * @param saida {@link Map} <{@link Integer}, {@link List}<{@link BigDecimal}>>
@@ -41,7 +41,7 @@ public class Treinamento {
 //	}
 	
 	/**
-	 * Construtor do Treinamento: recebe a taxa de atualização, o tipo de transferencia da rede e a sua estrutura.
+	 * Construtor do Treinamento: recebe a taxa de atualizaï¿½ï¿½o, o tipo de transferencia da rede e a sua estrutura.
 	 * @param taxaAtualizacao {@link BigDecimal}
 	 * @param tipo {@link TipoTransferencia}
 	 * @param estrutura {@link EstruturaRede}
@@ -105,8 +105,8 @@ public class Treinamento {
 	}
 	
 	/**
-	 * Monta a Rede Neural de acordo com as camadas que foram passadas nos métodos, caso não 
-	 * tenha nenhum parametro a rede não é montada.
+	 * Monta a Rede Neural de acordo com as camadas que foram passadas nos mï¿½todos, caso nï¿½o 
+	 * tenha nenhum parametro a rede nï¿½o ï¿½ montada.
 	 * @return {@link Boolean}
 	 */
 	public Boolean montarRede(){
@@ -121,7 +121,7 @@ public class Treinamento {
 		}
 		
 		criarCamadaOculta();
-		
+		System.out.println("Rede Montada com sucesso!");
 		return true;
 	}
 	
@@ -173,6 +173,7 @@ public class Treinamento {
 		return false;
 	}
 	
+	// Rafatorar esse tracho de cï¿½digo, ainda nï¿½o estï¿½ 100%
 	public Boolean treinar(int iteracoes){
 		Boolean treinada = false;
 		int iter = 0;
@@ -228,7 +229,7 @@ public class Treinamento {
 	private void setaEntradaNeuronio(List<BigDecimal> ent, List<Neuronio> listaNeuronios, int pos){
 		try {
 			if(ent.size() != listaNeuronios.size()){
-				throw new Exception("Entradas não corresponcem a quantidade de neuronios da camada de Entrada!");
+				throw new Exception("Entradas nï¿½o corresponcem a quantidade de neuronios da camada de Entrada!");
 			}else{
 				for(int i = 0; i < listaNeuronios.size(); i ++){
 					Neuronio neuronio = listaNeuronios.get(i);
