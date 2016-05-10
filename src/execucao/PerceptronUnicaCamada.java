@@ -18,14 +18,16 @@ public class PerceptronUnicaCamada {
 		
 		t.quantidadeNeuronioCamadaEntrada(2);
 		t.quantidadeNeuronioCamadaSaida(1);
-		t.conjuntoEntradaSaida(BigDecimal.ONE, BigDecimal.ONE, BigDecimal.ONE);
-		t.conjuntoEntradaSaida(BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.ZERO);
-		t.conjuntoEntradaSaida(BigDecimal.ONE, BigDecimal.ZERO, BigDecimal.ONE);
+		// Treinamento para redes com camadas ocultas ainda não foi implementado.
+		//t.quantidadeCamadasOcultas(1); 
 		t.conjuntoEntradaSaida(BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO);
+		t.conjuntoEntradaSaida(BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.ONE);
+		t.conjuntoEntradaSaida(BigDecimal.ONE, BigDecimal.ZERO, BigDecimal.ONE);
+		t.conjuntoEntradaSaida(BigDecimal.ONE, BigDecimal.ZERO, BigDecimal.ONE);
 		
 		System.out.println("Montagem da rede: " + t.montarRede());
 		
-		System.out.println("Treinada: " + t.treinar(8));
+		System.out.println("Treinada: " + t.treinar(100));
 		
 	}
 }

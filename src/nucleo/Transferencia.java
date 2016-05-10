@@ -7,7 +7,7 @@ public class Transferencia {
 	private TipoTransferencia tipo;
 	
 	/**
-	 * Recebe um tipo de tranferência
+	 * Recebe um tipo de tranferÃªncia
 	 * @param tipo {@link TipoTransferencia}
 	 */
 	public Transferencia(TipoTransferencia tipo) {
@@ -19,7 +19,7 @@ public class Transferencia {
 	}
 	
 	/**
-	 * Faz a transferência do valor vindo da soma dos neuronios da camada que foi calculada.
+	 * Faz a transferÃªncia do valor vindo da soma dos neurÃ´nios da camada que foi calculada.
 	 * @param valor
 	 * @return {@link BigDecimal}
 	 */

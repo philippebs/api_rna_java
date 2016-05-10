@@ -159,7 +159,7 @@ public class Treinamento {
 		}
 		
 		if(quantidadeCamadasOcultas > 0){
-			System.out.println("Camada oculta montada com sucesso!");
+			System.out.println(quantidadeCamadasOcultas + " camada" + (quantidadeCamadasOcultas > 1 ? "(s)" : "") + " oculta montada com sucesso!");
 		}
 	}
 	
@@ -181,7 +181,7 @@ public class Treinamento {
 		return false;
 	}
 	
-	// Rafatorar esse tracho de código, ainda não está 100%
+	// Rafatorar esse trecho de código, ainda não está 100%
 	public Boolean treinar(int iteracoes){
 		Boolean treinada = false;
 		int iter = 0;
