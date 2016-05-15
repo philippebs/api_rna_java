@@ -26,7 +26,7 @@ public class Treinamento {
 	private Integer quantidadeNeuronioCamadaSaida;
 	
 //	/**
-//	 * Caso funcione o m�todo recebe um map de entrada e um map de saida e adiciona a entrada com a saida desejada
+//	 * Caso funcione o método recebe um map de entrada e um map de saida e adiciona a entrada com a saida desejada
 //	 * no Map de entrada e saida;
 //	 * @param entrada {@link Map} <{@link Integer}, {@link List}<{@link BigDecimal}>>
 //	 * @param saida {@link Map} <{@link Integer}, {@link List}<{@link BigDecimal}>>
@@ -228,17 +228,42 @@ public class Treinamento {
 			System.out.println("As iterações foram insuficiente para treinar a rede neural!");
 		}
 		
+		operarRede();
+		
 		return true;
+	}
+	
+	private void operarRede(){
+		 System.out.println();
+		 System.out.println("Iniciando Rede:");
+		for(List<BigDecimal> entradas : entradaSaida.keySet()){
+			
+			List<Neuronio> listaNeuroniosEntrada = rede.get(TipoNeuronio.ENTRADA);
+			this.setaEntradaNeuronio(entradas, listaNeuroniosEntrada, -1);
+			
+			setaEntradaNaSaida(listaNeuroniosEntrada, rede.get(TipoNeuronio.SAIDA), 1);
+			for(Neuronio nSaida : rede.get(TipoNeuronio.SAIDA)){
+				//BigDecimal saidaDesejada = entradaSaida.get(entradas);
+				
+				BigDecimal saidaCalculada = nSaida.somar();
+				saidaCalculada = this.transferencia.tranferir(saidaCalculada);
+				
+				System.out.println(" Saida: " + saidaCalculada);
+			}
+		}
 	}
 	
 	private void atualizaPeso(Neuronio neuronio){
 		BigDecimal pesoNovoBias = neuronio.getPesoBias().add(this.taxaAtualizacao.multiply(this.erro).multiply(BigDecimal.ONE));
+		System.out.print("Peso bias: " + neuronio.getPesoBias() + " Novo Peso bias: " + pesoNovoBias);
 		neuronio.setPesoBias(pesoNovoBias);
 		for(int i = 0; i < neuronio.getPeso().size(); i++){
 			BigDecimal pesoNovo = (neuronio.getPeso()).get(i).add(this.taxaAtualizacao.multiply(this.erro).multiply((neuronio.getEntrada()).get(i)));
+			System.out.print("; Peso(" + i + "): " + neuronio.getPeso().get(i) + " Novo Peso: " + pesoNovo);
 			(neuronio.getPeso()).set(i, pesoNovo);
 //			neuronio.atualizaPeso(pesoNovo, i);
 		}
+		System.out.println();
 	}
 	
 	private void setaEntradaNeuronio(List<BigDecimal> ent, List<Neuronio> listaNeuronios, int pos){
@@ -249,6 +274,9 @@ public class Treinamento {
 				for(int i = 0; i < listaNeuronios.size(); i ++){
 					Neuronio neuronio = listaNeuronios.get(i);
 					neuronio.novaEntradaCamdaEntrada(ent.get(i));
+					if(pos == -1){
+						System.out.print(ent.get(i) + " ");
+					}
 				}
 			}
 		} catch (Exception e) {
