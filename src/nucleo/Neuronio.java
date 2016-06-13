@@ -42,7 +42,7 @@ public class Neuronio implements Soma{
 	
 	public void listaEntradas(List<BigDecimal> entradas){
 		try {
-			Boolean adicionaPeso = (entradas.size() == this.peso.size());// || this.peso.size() > entrada.size());
+			//Boolean adicionaPeso = (entradas.size() == this.peso.size());// || this.peso.size() > entrada.size());
 			if(entradas != null && entradas.size() > 0){
 				for(BigDecimal ent : entradas){
 					this.entrada.add(ent);

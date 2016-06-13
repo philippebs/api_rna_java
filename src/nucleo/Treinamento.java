@@ -1,13 +1,10 @@
 package nucleo;
 
 import java.math.BigDecimal;
-import java.sql.Savepoint;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.swing.plaf.BorderUIResource.BevelBorderUIResource;
 
 public class Treinamento {
 	
@@ -17,6 +14,7 @@ public class Treinamento {
 	private Transferencia transferencia;
 //	private Map<List<BigDecimal>, List<BigDecimal>> entradaSaida;
 	private Map<List<BigDecimal>, BigDecimal> entradaSaida;
+	private Map<List<BigDecimal>, List<BigDecimal>> entradasSaidas;
 	private Map<TipoNeuronio, List<Neuronio>> rede;
 	//private List<Neuronio> listaNeuronio;
 	private EstruturaRede estrutura;
@@ -41,7 +39,7 @@ public class Treinamento {
 //	}
 	
 	/**
-	 * Construtor do Treinamento: recebe a taxa de atualiza��o, o tipo de transferencia da rede e a sua estrutura.
+	 * Construtor do Treinamento: recebe a taxa de atualizacao, o tipo de transferencia da rede e a sua estrutura.
 	 * @param taxaAtualizacao {@link BigDecimal}
 	 * @param tipo {@link TipoTransferencia}
 	 * @param estrutura {@link EstruturaRede}
@@ -57,6 +55,7 @@ public class Treinamento {
 		this.quantidadeCamadasOcultas = -1;
 		this.entradaSaida = new HashMap<List<BigDecimal>, BigDecimal>();
 		this.rede = new HashMap<TipoNeuronio, List<Neuronio>>();
+		this.entradasSaidas = new HashMap<List<BigDecimal>, List<BigDecimal>>();
 	}
 	
 //	public void conjuntoEntradaSaida(List<BigDecimal> entrada, List<BigDecimal> saida){
@@ -86,6 +85,10 @@ public class Treinamento {
 			entrad.add(big);
 		}
 		this.entradaSaida.put(entrad, saida);
+	}
+	
+	public void conjuntoEntradaSaida(List<BigDecimal> entradas, List<BigDecimal> saidas){
+		
 	}
 	
 	public void quantidadeNeuronioCamadaEntrada(int quantidade){
