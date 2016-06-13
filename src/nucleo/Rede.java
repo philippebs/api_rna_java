@@ -10,7 +10,9 @@ public class Rede {
 	private EstruturaRede estruturaRede;
 	
 	
-	
-	
+	public Rede(EstruturaRede estruturaRede) {
+		this.estruturaRede = estruturaRede;
+		
+	}
 	
 }
