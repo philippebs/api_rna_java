@@ -15,4 +15,29 @@ public class Rede {
 		
 	}
 	
+	/**
+	 * Monta a rede de acordo com os parametros passados.
+	 * @return
+	 */
+	public Boolean montaRede(){
+		
+		this.criarCamadaEntrada();
+		this.criarCamadaOculta();
+		this.criarCamadaSaida();
+		
+		return false;
+	}
+	
+	private Boolean criarCamadaEntrada(){
+		
+		return false;
+	}
+	
+	private Boolean criarCamadaOculta(){
+		return false;
+	}
+	
+	private Boolean criarCamadaSaida(){
+		return false;
+	}
 }
