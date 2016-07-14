@@ -83,9 +83,11 @@ public class Neuronio implements Soma{
 		}
 	}
 	
-	public void novaEntrada(BigDecimal entrada){
+	public void novaEntrada(BigDecimal entrada, Boolean criarPesos){
 		this.entrada.add(entrada);
-		this.peso.add(BigDecimal.ZERO);
+		if(criarPesos){
+			this.peso.add(BigDecimal.ZERO);
+		}
 	}
 	
 	public void novaEntradaCamdaEntrada(BigDecimal entrada){
@@ -126,7 +128,11 @@ public class Neuronio implements Soma{
 	public Integer getCamada() {
 		return camada;
 	}
-
+	
+	public void limparEntradas(){
+		this.entrada.clear();
+	}
+	
 	@Override
 	public String toString() {
 		String retorno = "Neuronio: " + super.toString() + " [pesoBias = " + pesoBias;
