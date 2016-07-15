@@ -24,13 +24,14 @@ public class Transferencia {
 	 * @return {@link BigDecimal}
 	 */
 	public BigDecimal tranferir(BigDecimal valor){
-		
 		BigDecimal retorno = BigDecimal.ZERO;
 		
 		if(tipo == TipoTransferencia.DEGRAU_MAIOR_IGUAL_ZERO){
-			retorno = degrauMaiorIgualZero(valor);
+			return degrauMaiorIgualZero(valor);
 		}else if (tipo == TipoTransferencia.DEGRAU_MAIOR_ZERO) {
-			retorno = degrauMaiorZero(valor);
+			return degrauMaiorZero(valor);
+		}else if(tipo == TipoTransferencia.DEGRAU_MAIOR_ZERO_SAIDA_NEGATIVA){
+			return degrauMaiorZeroSaidaNegativa(valor); 
 		}else if(tipo == TipoTransferencia.SIGMOIDE){
 			
 		}else if(tipo == TipoTransferencia.TANGENTE_HIPERBOLICA){
@@ -54,6 +55,14 @@ public class Transferencia {
 			return BigDecimal.ONE;
 		}else{
 			return BigDecimal.ZERO;
+		}
+	}
+	
+	private BigDecimal degrauMaiorZeroSaidaNegativa(BigDecimal valor){
+		if(valor.compareTo(BigDecimal.ZERO) > 0){
+			return BigDecimal.ONE;
+		}else{
+			return BigDecimal.valueOf(-1L);
 		}
 	}
 	
