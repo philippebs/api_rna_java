@@ -19,11 +19,11 @@ public class PerceptronUnicaCamada {
 		// falha, pois a api não considera os sinais em conjunto mas sim como sendo cada sinal independente.
 		//Rede rede = new Rede(EstruturaRede.PERCPTRON_UNICA_CAMADA);
 		
-		Treinamento t = new Treinamento(BigDecimal.ONE, TipoTransferencia.DEGRAU_MAIOR_ZERO_SAIDA_NEGATIVA, EstruturaRede.PERCPTRON_UNICA_CAMADA);
+		Treinamento t = new Treinamento(BigDecimal.ONE, TipoTransferencia.DEGRAU_MAIOR_ZERO, EstruturaRede.PERCPTRON_UNICA_CAMADA);
 		
-		t.quantidadeNeuronioCamadaEntrada(4);
-//		t.quantidadeCamadasOcultas(1);
-//		t.quantidadeNeuronioCamadaOculta(2);
+		t.quantidadeNeuronioCamadaEntrada(2);
+		t.quantidadeCamadasOcultas(1);
+		t.quantidadeNeuronioCamadaOculta(2);
 		t.quantidadeNeuronioCamadaSaida(1);
 		
 		// Treinamento para redes com camadas ocultas ainda não foi implementado.
@@ -33,18 +33,17 @@ public class PerceptronUnicaCamada {
 //		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.ONE, BigDecimal.ZERO), Arrays.asList(BigDecimal.ZERO, BigDecimal.ZERO));//Machado de Assis
 //		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.ZERO, BigDecimal.ZERO), Arrays.asList(BigDecimal.ZERO, BigDecimal.ONE));//Raquel de Queiroz
 		
-		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.valueOf(1L), BigDecimal.valueOf(-1L), BigDecimal.valueOf(1L), BigDecimal.valueOf(1L)), BigDecimal.valueOf(1L)); // Cao
-		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.valueOf(1L), BigDecimal.valueOf(1L), BigDecimal.valueOf(1L), BigDecimal.valueOf(1L)), BigDecimal.valueOf(1L)); // Gato
-		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.valueOf(1L), BigDecimal.valueOf(1L), BigDecimal.valueOf(-1L), BigDecimal.valueOf(1L)), BigDecimal.valueOf(1L)); // Cavalo
-		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.valueOf(-1L), BigDecimal.valueOf(-1L), BigDecimal.valueOf(-1L), BigDecimal.valueOf(1L)), BigDecimal.valueOf(-1L)); // Homem
-		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.valueOf(-1L), BigDecimal.valueOf(1L), BigDecimal.valueOf(-1L), BigDecimal.valueOf(1L)), BigDecimal.valueOf(-1L)); // Galinha
-		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.valueOf(1L), BigDecimal.valueOf(-1L), BigDecimal.valueOf(1L), BigDecimal.valueOf(-1L)), BigDecimal.valueOf(-1L)); // Avestruz
+//		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.valueOf(1L), BigDecimal.valueOf(-1L), BigDecimal.valueOf(1L), BigDecimal.valueOf(1L)), BigDecimal.valueOf(1L)); // Cao
+//		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.valueOf(1L), BigDecimal.valueOf(1L), BigDecimal.valueOf(1L), BigDecimal.valueOf(1L)), BigDecimal.valueOf(1L)); // Gato
+//		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.valueOf(1L), BigDecimal.valueOf(1L), BigDecimal.valueOf(-1L), BigDecimal.valueOf(1L)), BigDecimal.valueOf(1L)); // Cavalo
+//		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.valueOf(-1L), BigDecimal.valueOf(-1L), BigDecimal.valueOf(-1L), BigDecimal.valueOf(1L)), BigDecimal.valueOf(-1L)); // Homem
+//		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.valueOf(-1L), BigDecimal.valueOf(1L), BigDecimal.valueOf(-1L), BigDecimal.valueOf(1L)), BigDecimal.valueOf(-1L)); // Galinha
+//		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.valueOf(1L), BigDecimal.valueOf(-1L), BigDecimal.valueOf(1L), BigDecimal.valueOf(-1L)), BigDecimal.valueOf(-1L)); // Avestruz
 		
-		
-//		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.ONE, BigDecimal.ONE), BigDecimal.ZERO);
-//		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.ZERO, BigDecimal.ONE), BigDecimal.ONE);
-//		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.ZERO, BigDecimal.ZERO), BigDecimal.ZERO);
-//		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.ONE, BigDecimal.ZERO), BigDecimal.ONE);
+		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.ZERO, BigDecimal.ONE), BigDecimal.ONE);
+		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.ZERO, BigDecimal.ZERO), BigDecimal.ZERO);
+		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.ONE, BigDecimal.ZERO), BigDecimal.ONE);
+		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.ONE, BigDecimal.ONE), BigDecimal.ZERO);
 		
 //		t.conjuntoEntradaSaida(BigDecimal.ONE, BigDecimal.ONE, BigDecimal.ONE); // kepler
 //		t.conjuntoEntradaSaida(BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.ZERO); // beethoven
