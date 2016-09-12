@@ -19,42 +19,37 @@ public class PerceptronUnicaCamada {
 		// falha, pois a api não considera os sinais em conjunto mas sim como sendo cada sinal independente.
 		//Rede rede = new Rede(EstruturaRede.PERCPTRON_UNICA_CAMADA);
 		
-		Treinamento t = new Treinamento(BigDecimal.ONE, TipoTransferencia.DEGRAU_MAIOR_ZERO, EstruturaRede.PERCPTRON_UNICA_CAMADA);
+		Treinamento t = new Treinamento(new BigDecimal("0.1"), TipoTransferencia.DEGRAU_MAIOR_IGUAL_ZERO_SAIDA_NEGATIVA, EstruturaRede.PERCPTRON_UNICA_CAMADA);
 		
 		t.quantidadeNeuronioCamadaEntrada(2);
-		t.quantidadeCamadasOcultas(1);
-		t.quantidadeNeuronioCamadaOculta(2);
-		t.quantidadeNeuronioCamadaSaida(1);
+		t.quantidadeNeuronioCamadaSaida(2);
 		
-		// Treinamento para redes com camadas ocultas ainda não foi implementado.
+		//Treinamento para redes com camadas ocultas ainda não foi implementado.
 		//t.quantidadeCamadasOcultas(1);
-//		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.ONE, BigDecimal.ONE), Arrays.asList(BigDecimal.ONE, BigDecimal.ZERO));//einstein
-//		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.ZERO, BigDecimal.ONE), Arrays.asList(BigDecimal.ONE, BigDecimal.ONE));// Marie Curie
-//		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.ONE, BigDecimal.ZERO), Arrays.asList(BigDecimal.ZERO, BigDecimal.ZERO));//Machado de Assis
-//		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.ZERO, BigDecimal.ZERO), Arrays.asList(BigDecimal.ZERO, BigDecimal.ONE));//Raquel de Queiroz
+		//t.quantidadeNeuronioCamadaOculta(2);
 		
-//		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.valueOf(1L), BigDecimal.valueOf(-1L), BigDecimal.valueOf(1L), BigDecimal.valueOf(1L)), BigDecimal.valueOf(1L)); // Cao
-//		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.valueOf(1L), BigDecimal.valueOf(1L), BigDecimal.valueOf(1L), BigDecimal.valueOf(1L)), BigDecimal.valueOf(1L)); // Gato
-//		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.valueOf(1L), BigDecimal.valueOf(1L), BigDecimal.valueOf(-1L), BigDecimal.valueOf(1L)), BigDecimal.valueOf(1L)); // Cavalo
-//		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.valueOf(-1L), BigDecimal.valueOf(-1L), BigDecimal.valueOf(-1L), BigDecimal.valueOf(1L)), BigDecimal.valueOf(-1L)); // Homem
-//		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.valueOf(-1L), BigDecimal.valueOf(1L), BigDecimal.valueOf(-1L), BigDecimal.valueOf(1L)), BigDecimal.valueOf(-1L)); // Galinha
-//		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.valueOf(1L), BigDecimal.valueOf(-1L), BigDecimal.valueOf(1L), BigDecimal.valueOf(-1L)), BigDecimal.valueOf(-1L)); // Avestruz
+		// autor = 0, cientista = 1
+		// homem = 0, mulher = 1
+
+		// Einstein 			1, 1 = 1 - 0 (Cientista, Homem)
+		// Marie Curie			0, 1 = 1 - 1 (Cientista, Mulher)
+		// Stan Lee				1, 0 = 0 - 0 (Autor, Homem)
+		// Clarice Lispector	0, 0 = 0 - 1 (Autor, Mulher)
 		
-		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.ZERO, BigDecimal.ONE), BigDecimal.ONE);
-		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.ZERO, BigDecimal.ZERO), BigDecimal.ZERO);
-		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.ONE, BigDecimal.ZERO), BigDecimal.ONE);
-		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.ONE, BigDecimal.ONE), BigDecimal.ZERO);
+		// --------------------------------------------------------
+		// autor = -1, cientista = 1
+		// homem = -1, mulher    = 1
+
+		// Einstein 			1 ,  1 =  1 (-1) (Cientista, Homem)
+		// Marie Curie			-1,  1 =  1   1  (Cientista, Mulher)
+		// Stan Lee				1 , -1 = -1 (-1) (Autor, Homem)
+		// Clarice Lispector	-1, -1 = -1   1  (Autor, Mulher)
 		
-//		t.conjuntoEntradaSaida(BigDecimal.ONE, BigDecimal.ONE, BigDecimal.ONE); // kepler
-//		t.conjuntoEntradaSaida(BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.ZERO); // beethoven
-//		t.conjuntoEntradaSaida(BigDecimal.ONE, BigDecimal.ZERO, BigDecimal.ONE); // einstein
-//		t.conjuntoEntradaSaida(BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO); // bach
+		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.ONE, BigDecimal.ONE), Arrays.asList(BigDecimal.ONE, new BigDecimal("-1")));//einstein
+		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.ZERO, BigDecimal.ONE), Arrays.asList(BigDecimal.ONE, BigDecimal.ONE));// Marie Curie
+		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.ONE, BigDecimal.ZERO), Arrays.asList(new BigDecimal("-1"), new BigDecimal("-1")));// Stan Lee
+		t.conjuntoEntradaSaida(Arrays.asList(BigDecimal.ZERO, BigDecimal.ZERO), Arrays.asList(new BigDecimal("-1"), BigDecimal.ONE));//Clarice Lispector
 		
-//		t.conjuntoEntradaSaida(BigDecimal.ZERO, BigDecimal.ZERO, BigDecimal.ZERO); // bach
-//		t.conjuntoEntradaSaida(BigDecimal.ONE, BigDecimal.ZERO, BigDecimal.ONE); // einstein
-//		t.conjuntoEntradaSaida(BigDecimal.ZERO, BigDecimal.ONE, BigDecimal.ZERO); // beethoven
-//		t.conjuntoEntradaSaida(BigDecimal.ONE, BigDecimal.ONE, BigDecimal.ONE); // kepler
-//		
 		
 		System.out.println("Treinada: " + t.treinar(10000));
 		

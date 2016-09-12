@@ -112,7 +112,7 @@ public class Treinamento {
 		rede.clear();
 		
 		if(!criarCamadaEntrada() || !criarCamadaSaida()){
-			System.out.println("Falha ao montra a rede!");
+			System.out.println("Falha ao montar a rede!");
 			return false;
 		}
 		
@@ -253,6 +253,7 @@ public class Treinamento {
 								atualizaPeso(nSaida);
 								treinada = false;
 							}
+							
 							System.out.println(nSaida);
 							indice++;
 							//BigDecimal saidaDesejada = entradaSaida.get(entradas);
@@ -271,7 +272,7 @@ public class Treinamento {
 			
 			operarRede();
 			
-			return true;
+			return treinada;
 		}
 		
 		return false;
